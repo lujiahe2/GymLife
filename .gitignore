@@ -43,3 +43,15 @@ htmlcov/
 
 # Misc
 *.local
+
+# AWS / IaC (keep lockfiles and committed examples; ignore state & build output)
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+!*.tfvars.example
+cdk.out/
+.aws-sam/
+*.pem

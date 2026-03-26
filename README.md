@@ -9,7 +9,8 @@ GymLife/
 ├── apps/web/              # Next.js (TypeScript) — UI + BFF
 ├── services/api/          # FastAPI — RAG, embeddings, agent HTTP/SSE
 ├── packages/shared/       # Optional shared TS types (wire up later)
-├── data/knowledge-base/     # Source docs for ingestion into the vector store
+├── data/knowledge-base/   # Source docs for ingestion into the vector store
+├── infra/aws/             # AWS: IaC placeholders (CDK/Terraform/SAM)
 ├── docker-compose.yml     # Local Postgres + pgvector
 └── README.md
 ```
@@ -20,6 +21,7 @@ GymLife/
 | **services/api** | Python service: retrieval, LLM orchestration, streaming responses. |
 | **data/knowledge-base** | Curated fitness content for your RAG index (you control what ships). |
 | **docker-compose** | Dev database with **pgvector** for embeddings. |
+| **infra/aws** | Placeholder for AWS deployment (see `infra/aws/README.md`, `env.example`). |
 
 ## Quick start
 
