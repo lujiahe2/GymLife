@@ -1,0 +1,16 @@
+# Local dev: Postgres with pgvector for embeddings (RAG).
+# Start: docker compose up -d
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: gymlife
+      POSTGRES_PASSWORD: gymlife
+      POSTGRES_DB: gymlife
+    ports:
+      - "5432:5432"
+    volumes:
+      - gymlife_pgdata:/var/lib/postgresql/data
+
+volumes:
+  gymlife_pgdata:
