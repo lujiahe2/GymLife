@@ -50,10 +50,20 @@ uvicorn app.main:app --reload --port 8000
 
 → [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
+Run **both** the web app and the API. **Register / log in** on the site, then fill **Profile** with basic gym info (goals, equipment, etc.). Chat and profile data are stored **per user** in SQLite (`services/api/data/gymlife.db`); the coach only sees **your** messages and **your** profile when you’re logged in. Set `JWT_SECRET` in `services/api/.env` for real use (see `env.example`).
+
+**LLM:** Defaults target **[Ollama](https://ollama.com)** locally (`env.example` → `.env`, then `ollama pull llama3.2` or change `OPENAI_MODEL`). For OpenAI’s cloud API instead, set `OPENAI_API_KEY` and adjust URLs/models as in `services/api/README.md`.
+
+Optional: copy `apps/web/env.example` to `apps/web/.env.local` and set `NEXT_PUBLIC_API_URL` if the API is not on port 8000.
+
+**Upgrading from an older build without auth:** delete `services/api/data/gymlife.db` once so the API can create the new `user` + `chat_message` schema.
+
+The coach can **update the saved gym profile** when you ask in chat (via an LLM tool), as long as your model/API supports **function calling** (OpenAI; Ollama with a tool-capable model such as recent Llama 3).
+
 ## Repository
 
 - **Remote:** [github.com/lujiahe2/GymLife](https://github.com/lujiahe2/GymLife)
 
 ---
 
-*Next: env files (`.env.example`), auth, and RAG routes on the API.*
+*Next: RAG over your knowledge base and deployment.*

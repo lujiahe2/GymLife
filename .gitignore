@@ -3,6 +3,9 @@ node_modules/
 .pnp
 .pnp.js
 
+# Local API DB (SQLite)
+services/api/data/
+
 # Python
 __pycache__/
 *.py[cod]

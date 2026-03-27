@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 
+import "./globals.css";
+
+import { ChatWidgetGate } from "@/components/ChatWidget";
+import { Providers } from "@/app/providers";
+
 export const metadata: Metadata = {
   title: "GymLife",
   description: "Fitness plans, RAG coach, and streaks for beginners.",
@@ -12,7 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>
+          {children}
+          <ChatWidgetGate />
+        </Providers>
+      </body>
     </html>
   );
 }
